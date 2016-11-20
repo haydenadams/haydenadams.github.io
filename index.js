@@ -39,6 +39,11 @@ var pictures = [];
 for (var i = 0; i < 20; i++) {
   pictures.push(new Image());
   pictures[pictures.length-1].src = '/img/scans-min/img' + (i+1) + '-min.jpg';
+  // pictures[pictures.length-1].addEventListener("load", loadImage, false);
+  // function loadImage(e) {
+  //   console.log('yo i got loaded');
+  //   console.log(e);
+  // }   
 }
 
 function setup() {
@@ -67,8 +72,8 @@ function draw(e) {
   }
 
   // draw pos
-  ctx.font = "48px serif";
-  ctx.fillText(" y pos " + Math.round(pos.y), 10, 50);
+  // ctx.font = "48px serif";
+  // ctx.fillText(" y pos " + Math.round(pos.y), 10, 50);
 }
 
 function getMousePos(canvas, evt) {
@@ -94,7 +99,7 @@ function handleMove(e) {
   var oldMousePos = mousePos;
   mousePos = getMousePos(canvas, e);
   if (!newTouch) {
-    pos.y += (mousePos.y - oldMousePos.y) / 20;
+    pos.y += (mousePos.y - oldMousePos.y) / 10;
   }
   if (newTouch) {
     newTouch = false;
